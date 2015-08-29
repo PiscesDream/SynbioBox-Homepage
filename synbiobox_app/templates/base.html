@@ -1,0 +1,85 @@
+{% block doc -%}
+<!DOCTYPE html>
+<html {% block html_attribs %}{% endblock html_attribs %}>
+{%- block html %}
+    <head>
+    {%- block head %}
+    <title>{% block title %}{% endblock %}</title>
+
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+
+        {%- block styles %}
+            <link rel="stylesheet" type="text/css" href="/static/css/bootstrap.min.css">
+            <link rel="stylesheet" type="text/css" href="/static/css/syn.css">
+            <link rel="icon" href="/static/pic/icon_8.png">
+        {%- endblock styles %}
+
+        {% block scripts %}
+            <script src="/static/js/jquery.min.js"></script>
+            <script src="/static/js/bootstrap.min.js"></script>
+        {%- endblock scripts %}
+
+    {%- endblock head %}
+    </head>
+
+    <body{% block body_attribs %}{% endblock body_attribs %}>
+    {% block body -%}
+
+    {% block topcontent %}
+    {% endblock %}
+
+        {% block navbar %}
+<nav class="navbar navbar-default navbar-fixed-bottom transparent">
+  <div class="container-fluid">
+    <!-- Brand and toggle get grouped for better mobile display -->
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="{{url_for('index')}}">Synbio Box</a>
+    </div>
+
+    <!-- Collect the nav links, forms, and other content for toggling -->
+    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+      <ul class="nav navbar-nav">
+      </ul>
+      <ul class="nav navbar-nav navbar-right">
+          <li><a href="mailto:SYSU.Software2015@gmail.com">Contact Us</a></li>
+          <li><a href="http://github.com/PiscesDream/SynbioBox">Github</a></li>
+          <li><a href="http://hapd.info/aboutme/">About Me</a></li>
+      </ul>
+    </div><!-- /.navbar-collapse -->
+  </div><!-- /.container-fluid -->
+</nav>
+
+        {%- endblock navbar %}
+
+        <div class="container">
+            <div class="col-md-12">
+            {% for message in get_flashed_messages() %}
+                <div class="alert alert-warning">
+                  <button type="button" class="close" data-dismiss="alert">&times;</button>
+                  {{ message }}
+                </div>
+            {% endfor %}
+            </div>
+        </div>
+
+        {% block content -%}
+        {%- endblock content %}
+
+        <footer class="footer">
+            <div class="container-fluid">
+                <div class="row" style="text-align:center">
+                </div>
+            </div>
+        </footer>
+
+    {%- endblock body %}
+{%- endblock html %}
+</html>
+{% endblock doc -%}
+

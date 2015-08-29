@@ -1,0 +1,165 @@
+{% extends "base.html" %}
+
+{% block title %} Synbio Box - Learn Synthetic Biology in a Game {% endblock %}
+
+{% block topcontent %}
+<div class="container-fluid">
+    <div class="row">
+    <div id="carousel-example-generic" class="carousel slide" data-ride="carousel">
+      <!-- Indicators -->
+      <ol class="carousel-indicators">
+        <li data-target="#carousel-example-generic" data-slide-to="0" class="active"></li>
+        <li data-target="#carousel-example-generic" data-slide-to="1"></li>
+      </ol>
+
+      <!-- Wrapper for slides -->
+      <div class="carousel-inner" role="listbox">
+        <div class="item active">
+          <img src="/static/pic/1_long.jpg" width="100%">
+        </div>
+        <div class="item">
+          <img src="/static/pic/2_long.jpg" width="100%">
+        </div>
+      </div>
+    </div><!-- carousel-->
+  </div><!--row--> 
+</div>
+{% endblock %}
+
+{% block content %}
+<div class="container-fluid">
+
+    <div class="row content_box">
+        <div class="col-md-10 col-md-offset-1">
+            <div class="sub-title">
+                <h1>What's new in SynbioBox 2.x</h1>
+            </div>
+            <table class="table">
+                <tr>
+                    <td style="border:none;text-align:right;width:30%">
+                        <img src="/static/pic/3.jpg" height="240px"/>
+                    </td>
+                    <td style="border:none;vertical-align:middle">
+                        <p class="whats-new-text">
+                            Various functional parts offers health recovery, sudden death, speed decelerating, and bonus.
+                        </p>
+                    </td>
+                </tr>
+            </table>
+            <table class="table">
+                <tr>
+                    <td style="border:none;vertical-align:middle">
+                        <p class="whats-new-text">
+                            New songs are composed, which are more melodious and more gentle.
+                        </p>
+                    </td>
+                    <td style="border:none;text-align:left;width:30%">
+                        <img src="/static/pic/4.jpg" height="240px"/>
+                    </td>
+                </tr>
+            </table>
+            <table class="table">
+                <tr>
+                    <td style="border:none;text-align:center">
+                        <img src="/static/pic/5.jpg" height="300px"/>
+                        <p class="whats-new-text">
+                            <br/>
+                            More features will be included in Synbio Box 2.x! 
+                        </p>
+                    </td>
+                </tr>
+            </table>
+
+
+
+        </div>
+    </div>
+
+
+    <div class="row content_box" style="background-color:#f7f7f7">
+        <div class="col-md-10 col-md-offset-1">
+            <div class="sub-title">
+                <h1>Download to become the first player</h1>
+                <h4>You can play Synbio Box on multiple platforms.</h4>
+            </div>
+            <table class="table" style="">
+                <tr style="text-align:center">
+                    <td>Version</td>
+                    <td>Platform</td>
+                    <td>MD5 sum</td>
+                    <td>Address</td>
+                    <td>Count</td>
+                </tr>
+                {% for platform, info in download_dict %}
+                <tr {% if info[4]  %}class="success"{% else %} class="warning"{% endif %} style="text-align:center">
+                    <td>{{info[0]}}</td>
+                    <td>{{platform}}</td>                    
+                    <td>{{info[2]}}</td>                    
+                    <td><a class="btn btn-primary" href="/link/{{platform}}">{% if platform=='Web player' %}Play online (plugin needed){% else %}Download{% endif %}</a></td>                    
+                    <td>{{info[3]}}</td>                    
+                </tr>
+                {% endfor %}
+
+                <tr >
+                    <td colspan='5' style="text-align:left;border-top:none"><h6>Green one is tested. Online version requires Unity Web Player.<a href="http://blogs.unity3d.com/cn/2015/05/28/web-publishing-following-chrome-npapi-deprecation/">(Remember to allow NPAPI on Chrome or Other browsers.)</a></h6></td>
+                </tr>
+            </table>
+        </div>
+    </div>
+
+
+    <div class="row content_box" >
+        <div class="col-md-10 col-md-offset-1">
+            <div class="sub-title">
+                <h1>Contact Us</h1>
+                <h4>We are SYSU-Software team and this is our sub-project of iGEM 2015.</h4>
+                <h4>Synbio Box is still in development, we appreciate every comments.</h4>
+            </div>
+
+
+            <br/>
+            <br/>
+
+            <!-- UY BEGIN -->
+            <div id="uyan_frame"></div>
+            <script type="text/javascript" src="http://v2.uyan.cc/code/uyan.js?uid=2050578"></script>
+            <!-- UY END -->
+
+        </div>
+    </div>
+
+
+    <div class="row content_box" style="background-color:#f7f7f7">
+        <div class="col-md-10 col-md-offset-1">
+            <div class="sub-title">
+                <h1>Credits</h1>
+                <h4>GAME & LEVEL DESIGN</h4>
+                <h4>SYSU-Software iGEM Team</h4>
+                <br/>
+
+                <h4>PROGRAMMING</h4>
+                <h4>Shaofan Lai</h4>
+                <h4>Tianyu Meng</h4>
+                <br/>
+
+                <h4>ART DESIGN</h4>
+                <h4>Zhilu He</h4>
+                <h4>Yi Shi</h4>
+                <br/>
+
+                <h4>ORIGINAL MUSIC & SOUND DESIGN</h4>
+                <h4>Xinhai Zhu</h4>
+                <br/>
+
+                <h4>Special thanks for our friends and the first players for the test version. Thanks to their suggestions, the game is becoming much better.</h4>
+
+            </div>
+        </div>
+    </div>
+
+</div>
+{% endblock %}
+
+{% block scripts %}
+{{super()}}
+{% endblock %}

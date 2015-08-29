@@ -1,0 +1,7 @@
+*.swp
+*.pyc
+*.zip
+*.apk
+*.bar
+
+synbiobox_app/static/pic/old
